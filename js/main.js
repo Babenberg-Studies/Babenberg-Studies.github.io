@@ -7,10 +7,10 @@
   const STRINGS = {
     en: {
       metaDescription:
-        "SymptomTrack — external memory for symptoms and medications. Low friction, private, built for neurodivergent minds.",
+        "Babenberg — external memory for symptoms and medications. Low friction, private, built for neurodivergent minds.",
       tagline:
-        "Your external memory for health. Track symptoms and medications with low friction.",
-      sub: "Free for daily use · Premium for export and multiple profiles",
+        "Babenberg is a health diary on iPhone that helps you record with little effort the intensity of what you feel, the specific moments of the day, your medication, and your sleep, so you have a clear history when you visit the doctor and rely less on memory.",
+      sub: "Free for daily tracking · Premium for PDF export, health card, and profiles",
       download: "Download on the App Store",
       whatTitle: "What you can do",
       f1: "Log symptoms with sliders and quick buttons",
@@ -19,36 +19,35 @@
       f4: "Notes, sleep, and temperature in one place",
       f5: "Your health data stays on your device",
       shotsTitle: "Screenshots",
-      shotCaption: "SymptomTrack on iPhone — add your App Store screenshots here",
-      whoTitle: "Who it's for",
+      shotsHint: "Swipe horizontally to see more",
+      whoTitle: "Who is it for?",
       whoBody:
-        "Built with neurodivergent users in mind (ADHD, autism, and similar needs): simplicity, continuity, less cognitive load. Anyone who wants a clear record for their doctor can use it too.",
-      whoCredit: "Created from lived experience — not a generic wellness app.",
+        "Built with neurodivergent users in mind (ADHD, autism, and similar needs) but useful for everyone. Built with simplicity, continuity, less friction.",
       tiersTitle: "Free vs Premium",
       freeTitle: "Free",
-      free1: "Symptoms, medications, alarms",
-      free2: "History and daily tracking",
-      free3: "No full-app lock",
+      free1: "Symptoms, medications, and alarms",
+      free2: "History, charts, and daily tracking",
+      free3: "User profile and health info — no full-app lock",
       premiumTitle: "Premium",
-      premium1: "Export history (MD, TXT, PDF)",
-      premium2: "Multiple profiles (up to 6)",
-      tierNote: "No subscription required to keep using SymptomTrack every day.",
+      premium1: "Export activity history (PDF)",
+      premium2: "User health card: view, PDF, and QR",
+      premium3: "Multiple profiles (up to 6)",
+      tierNote: "No subscription required to keep using Babenberg every day.",
       videoTitle: "Video",
-      videoSoon: "Tutorial video coming soon.",
       helpTitle: "Help & manual",
       helpBody: "User guide will be published here.",
       legalPrivacy: "Privacy & Terms",
       contact: "Contact",
       disclaimer:
-        "SymptomTrack does not provide medical advice. Always consult a healthcare professional.",
+        "Babenberg does not provide medical advice. Always consult a healthcare professional.",
       copyright: "© Babenberg Studies",
     },
     es: {
       metaDescription:
-        "SymptomTrack — memoria externa para síntomas y medicación. Poca fricción, privada, pensada para mentes neurodivergentes.",
+        "Babenberg — memoria externa para síntomas y medicación. Poca fricción, privada, pensada para mentes neurodivergentes.",
       tagline:
-        "Tu memoria externa de salud. Registra síntomas y medicación con poca fricción.",
-      sub: "Gratis para el uso diario · Premium para exportar y perfiles",
+        "Babenberg es un diario de salud en el iPhone que te ayuda a registrar con poco esfuerzo la intensidad de lo que sientes, los momentos concretos del día, la medicación y el sueño, para que tengas un historial claro cuando visites al médico y no dependas tanto de la memoria.",
+      sub: "Gratis para el día a día · Premium para PDF, ficha de salud y perfiles",
       download: "Descargar en App Store",
       whatTitle: "Qué puedes hacer",
       f1: "Registrar síntomas con sliders y botones rápidos",
@@ -57,31 +56,32 @@
       f4: "Notas, sueño y temperatura en un solo sitio",
       f5: "Tus datos de salud permanecen en tu dispositivo",
       shotsTitle: "Capturas",
-      shotCaption: "SymptomTrack en iPhone — añade aquí tus capturas de App Store",
+      shotsHint: "Desliza horizontalmente para ver más",
       whoTitle: "Para quién es",
       whoBody:
-        "Pensada para personas neurodivergentes (TDAH, autismo y necesidades similares): simplicidad, continuidad, menos carga cognitiva. También sirve a quien quiera un registro claro para el médico.",
-      whoCredit: "Creada desde experiencia vivida — no es una app genérica de bienestar.",
+        "Pensada para personas neurodivergentes (TDAH, autismo y necesidades similares) pero útil para todos los usuarios. Construida para simplicidad, continuidad, y menos puntos de fricción.",
       tiersTitle: "Gratis vs Premium",
       freeTitle: "Gratis",
-      free1: "Síntomas, medicación, alarmas",
-      free2: "Historial y seguimiento diario",
-      free3: "Sin bloqueo de la app",
+      free1: "Síntomas, medicación y alarmas",
+      free2: "Historial, gráficos y seguimiento diario",
+      free3: "Perfil de usuario e info de salud — sin bloqueo de la app",
       premiumTitle: "Premium",
-      premium1: "Exportar historial (MD, TXT, PDF)",
-      premium2: "Varios perfiles (hasta 6)",
-      tierNote: "No hace falta suscripción para seguir usando SymptomTrack cada día.",
+      premium1: "Exportar historial de actividad (PDF)",
+      premium2: "Ficha de salud: ver, PDF y QR",
+      premium3: "Varios perfiles (hasta 6)",
+      tierNote: "No hace falta suscripción para seguir usando Babenberg cada día.",
       videoTitle: "Vídeo",
-      videoSoon: "Vídeo tutorial próximamente.",
       helpTitle: "Ayuda y manual",
       helpBody: "La guía de usuario se publicará aquí.",
       legalPrivacy: "Privacidad y términos",
       contact: "Contacto",
       disclaimer:
-        "SymptomTrack no ofrece consejo médico. Consulta siempre con un profesional sanitario.",
+        "Babenberg no ofrece consejo médico. Consulta siempre con un profesional sanitario.",
       copyright: "© Babenberg Studies",
     },
   };
+
+  const SCREENSHOT_COUNT = 10;
 
   const LEGAL_URL = "https://rvbservices.wixsite.com/babenberg-studies/legal";
   const CONTACT_EMAIL = "contact@babenberg-studies.com";
@@ -98,8 +98,30 @@
     return STRINGS[lang][key] || STRINGS.en[key] || "";
   }
 
+  function renderShots() {
+    const gallery = document.getElementById("shots-gallery");
+    if (!gallery) return;
+    gallery.innerHTML = "";
+    gallery.setAttribute("aria-label", t("shotsTitle"));
+    for (let i = 1; i <= SCREENSHOT_COUNT; i += 1) {
+      const num = String(i).padStart(2, "0");
+      const wrap = document.createElement("div");
+      wrap.className = "shot";
+      wrap.setAttribute("role", "group");
+      wrap.setAttribute("aria-label", `${i} / ${SCREENSHOT_COUNT}`);
+      const img = document.createElement("img");
+      img.src = `assets/screenshots/${lang}/${num}.png`;
+      img.alt = `Babenberg screenshot ${i}`;
+      img.loading = i <= 2 ? "eager" : "lazy";
+      wrap.appendChild(img);
+      gallery.appendChild(wrap);
+    }
+    gallery.scrollLeft = 0;
+  }
+
   function applyLang() {
     document.documentElement.lang = lang;
+    document.title = "Babenberg";
     document.querySelector('meta[name="description"]')?.setAttribute("content", t("metaDescription"));
 
     document.querySelectorAll("[data-i18n]").forEach((el) => {
@@ -113,6 +135,8 @@
 
     document.getElementById("btn-en")?.classList.toggle("active", lang === "en");
     document.getElementById("btn-es")?.classList.toggle("active", lang === "es");
+
+    renderShots();
   }
 
   document.getElementById("btn-en")?.addEventListener("click", () => {

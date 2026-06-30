@@ -1,37 +1,33 @@
-# babenberg-studies.github.io
+# SymptomTrack — landing page (source copy)
 
-Public landing page for **SymptomTrack** (App Store).
+Canonical deploy target: **public repo** [`rosteoman/symptomtrack-landing`](https://github.com/rosteoman/symptomtrack-landing).
 
-- **Live URL:** https://babenberg-studies.github.io/
-- **App repo:** private (`rosteoman/SymptomTrack`) — source code is not published here.
+Live URL: **https://rosteoman.github.io/symptomtrack-landing/**
 
-Static HTML/CSS/JS, dark theme, EN/ES.
+The iOS app stays in the **private** repo `rosteoman/SymptomTrack`. Only this static site is public.
 
-## Deploy
-
-From this folder, after the GitHub org and repo exist:
-
-```bash
-git push origin main
-```
-
-Or run the setup script from the SymptomTrack repo:
+## Deploy (one-time setup + updates)
 
 ```bash
 ./scripts/setup-babenberg-studies-pages.sh
 ```
 
+Requires [GitHub CLI](https://cli.github.com/) (`brew install gh`) and `gh auth login`.
+
+After setup, copy changes from `landing/` to `../babenberg-studies.github.io/` and push, or edit directly in the Pages repo.
+
 ## Local preview
 
-Open `index.html` in a browser (double-click in Finder), or:
+Open `index.html` in Finder (double-click), or:
 
 ```bash
 python3 -m http.server 8765
 # → http://127.0.0.1:8765
 ```
 
-## Assets to replace later
+## App Store
 
-- App Store screenshots in `assets/screenshots/`
-- YouTube embed in place of `.video-placeholder`
-- User manual link in Help section
+- EN: https://apps.apple.com/jp/app/symptomtrack/id6751636595?l=en-US
+- ES: https://apps.apple.com/jp/app/symptomtrack/id6751636595?l=es-ES
+
+Legal: https://rvbservices.wixsite.com/babenberg-studies/legal
