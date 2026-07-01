@@ -2,6 +2,7 @@
   const APP_STORE = {
     en: "https://apps.apple.com/jp/app/symptomtrack/id6751636595?l=en-US",
     es: "https://apps.apple.com/jp/app/symptomtrack/id6751636595?l=es-ES",
+    ja: "https://apps.apple.com/jp/app/symptomtrack/id6751636595?l=ja",
   };
 
   const STRINGS = {
@@ -79,6 +80,43 @@
         "Babenberg no ofrece consejo médico. Consulta siempre con un profesional sanitario.",
       copyright: "© Babenberg Studies",
     },
+    ja: {
+      metaDescription:
+        "Babenberg — 症状と服薬の記録を、手間なく。低負荷でプライベート、ニューロダイバージェントの方にも。",
+      tagline:
+        "Babenbergは、iPhone向けの健康日記で、感じている強さ、一日の具体的な瞬間、服薬、睡眠を手間なく記録し、診察時にわかりやすい履歴を残して、記憶に頼りすぎないために役立ちます。",
+      sub: "日常の記録は無料 · PremiumでPDFエクスポート、健康カード、プロファイル",
+      download: "App Storeでダウンロード",
+      whatTitle: "できること",
+      f1: "スライダーで強度を、「今すぐ」ボタンでその瞬間を記録",
+      f2: "服薬、服用記録、リマインダーを管理",
+      f3: "履歴とグラフで傾向を確認",
+      f4: "メモ、睡眠、体温を一か所に",
+      f5: "健康データはあなたの端末に保存されます",
+      shotsTitle: "スクリーンショット",
+      shotsHint: "横にスワイプして続きを見る",
+      whoTitle: "こんな方に",
+      whoBody:
+        "ニューロダイバージェント（ADHD、自閉スペクトラムなど）を念頭に設計していますが、どなたにも使えます。シンプルさ、継続性、摩擦の少なさを重視しています。",
+      tiersTitle: "無料 vs Premium",
+      freeTitle: "無料",
+      free1: "強度記録、服薬、アラーム",
+      free2: "履歴、グラフ、毎日の記録",
+      free3: "ユーザープロファイルと健康情報 — アプリ全体のロックなし",
+      premiumTitle: "Premium",
+      premium1: "活動履歴のエクスポート（PDF）",
+      premium2: "健康カード：表示、PDF、QR",
+      premium3: "複数プロファイル（最大6）",
+      tierNote: "毎日使い続けるのにサブスクリプションは不要です。",
+      videoTitle: "動画",
+      helpTitle: "ヘルプとマニュアル",
+      helpBody: "ユーザーガイドはこちらに掲載予定です。",
+      legalPrivacy: "プライバシーと利用規約",
+      contact: "お問い合わせ",
+      disclaimer:
+        "Babenbergは医療アドバイスを提供しません。必ず医療専門家にご相談ください。",
+      copyright: "© Babenberg Studies",
+    },
   };
 
   const SCREENSHOT_COUNT = 9;
@@ -88,11 +126,13 @@
 
   const stored = localStorage.getItem("st-lang");
   let lang =
-    stored === "en" || stored === "es"
+    stored === "en" || stored === "es" || stored === "ja"
       ? stored
       : navigator.language.startsWith("es")
         ? "es"
-        : "en";
+        : navigator.language.startsWith("ja")
+          ? "ja"
+          : "en";
 
   function t(key) {
     return STRINGS[lang][key] || STRINGS.en[key] || "";
@@ -135,6 +175,7 @@
 
     document.getElementById("btn-en")?.classList.toggle("active", lang === "en");
     document.getElementById("btn-es")?.classList.toggle("active", lang === "es");
+    document.getElementById("btn-ja")?.classList.toggle("active", lang === "ja");
 
     renderShots();
   }
@@ -147,6 +188,12 @@
 
   document.getElementById("btn-es")?.addEventListener("click", () => {
     lang = "es";
+    localStorage.setItem("st-lang", lang);
+    applyLang();
+  });
+
+  document.getElementById("btn-ja")?.addEventListener("click", () => {
+    lang = "ja";
     localStorage.setItem("st-lang", lang);
     applyLang();
   });
