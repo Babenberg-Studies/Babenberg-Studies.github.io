@@ -81,7 +81,7 @@
     },
   };
 
-  const SCREENSHOT_COUNT = 10;
+  const SCREENSHOT_COUNT = 9;
 
   const LEGAL_URL = "https://rvbservices.wixsite.com/babenberg-studies/legal";
   const CONTACT_EMAIL = "contact@babenberg-studies.com";
@@ -110,7 +110,7 @@
       wrap.setAttribute("role", "group");
       wrap.setAttribute("aria-label", `${i} / ${SCREENSHOT_COUNT}`);
       const img = document.createElement("img");
-      img.src = `assets/screenshots/${lang}/${num}.png`;
+      img.src = `assets/screenshots/${lang}/${num}.png?v=1.6.0`;
       img.alt = `Babenberg screenshot ${i}`;
       img.loading = i <= 2 ? "eager" : "lazy";
       wrap.appendChild(img);
