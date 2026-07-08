@@ -8,9 +8,9 @@
   const STRINGS = {
     en: {
       metaDescription:
-        "Babenberg — iPhone health diary for symptoms, medication, and sleep. Clear history for healthcare visits.",
+        "Babenberg — iPhone health diary for symptoms and medication. Clear history for healthcare visits.",
       tagline:
-        "Babenberg is a health diary on iPhone that helps you record, with little effort, symptoms and medication, as well as sleep, so you have a clear history when you visit a healthcare professional and rely less on memory.",
+        "Babenberg is a health diary on iPhone that helps you record, with little effort, symptoms and medication, so you have a clear history when you visit a healthcare professional and rely less on memory.",
       sub: "Free for daily tracking · Premium for PDF export, health card, and profiles",
       download: "Download on the App Store",
       whatTitle: "What you can do",
@@ -45,9 +45,9 @@
     },
     es: {
       metaDescription:
-        "Babenberg — diario de salud en iPhone: síntomas, medicación y sueño. Historial claro para la consulta.",
+        "Babenberg — diario de salud en iPhone: síntomas y medicación. Historial claro para la consulta.",
       tagline:
-        "Babenberg es un diario de salud en el iPhone que te ayuda a registrar, con poco esfuerzo, síntomas y medicación, además del sueño, para tener un historial claro cuando visites al profesional sanitario y no dependas tanto de la memoria.",
+        "Babenberg es un diario de salud en el iPhone que te ayuda a registrar, con poco esfuerzo, síntomas y medicación, para tener un historial claro cuando visites al profesional sanitario y no dependas tanto de la memoria.",
       sub: "Gratis para el día a día · Premium para PDF, ficha de salud y perfiles",
       download: "Descargar en App Store",
       whatTitle: "Qué puedes hacer",
@@ -82,9 +82,9 @@
     },
     ja: {
       metaDescription:
-        "Babenberg — iPhoneの健康日記。症状、服薬、睡眠を手間なく記録。診察時にわかりやすい履歴。",
+        "Babenberg — iPhoneの健康日記。症状と服薬を手間なく記録。診察時にわかりやすい履歴。",
       tagline:
-        "Babenbergは、iPhone向けの健康日記です。症状、服薬、睡眠を手間なく記録し、医療専門家の診察時にわかりやすい履歴を残して、記憶に頼りすぎないために役立ちます。",
+        "Babenbergは、iPhone向けの健康日記です。症状と服薬を手間なく記録し、医療専門家の診察時にわかりやすい履歴を残して、記憶に頼りすぎないために役立ちます。",
       sub: "日常の記録は無料 · PremiumでPDFエクスポート、健康カード、プロファイル",
       download: "App Storeでダウンロード",
       whatTitle: "できること",
